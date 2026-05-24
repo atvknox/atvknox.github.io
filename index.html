@@ -13,167 +13,98 @@
         }
 
         body {
-            background: linear-gradient(135deg, #050b12, #0d1117);
+            background: #0d1117;
             color: #e6edf3;
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-family: Inter, system-ui, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            padding: 40px 20px;
         }
 
         .container {
-            width: 90%;
-            max-width: 900px;
-            padding: 40px;
-            border: 1px solid rgba(23, 147, 209, 0.4);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 40px rgba(23, 147, 209, 0.15);
-        }
-
-        .terminal-bar {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-        }
-
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .intro {
-            color: #7ee787;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            width: 100%;
+            max-width: 720px;
         }
 
         h1 {
             font-size: 4rem;
-            color: #1793d1;
-            margin-bottom: 15px;
-            text-shadow: 0 0 15px rgba(23, 147, 209, 0.7);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -2px;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #8b949e;
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-
-        .skill {
-            padding: 10px 18px;
-            border: 1px solid #1793d1;
-            border-radius: 999px;
+        .five {
             color: #58a6ff;
-            background: rgba(23, 147, 209, 0.08);
-            transition: 0.3s ease;
+            font-style: italic;
         }
 
-        .skill:hover {
-            transform: translateY(-4px);
-            background: rgba(23, 147, 209, 0.2);
-            box-shadow: 0 0 15px rgba(23, 147, 209, 0.3);
+        p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #9da7b3;
+            margin-bottom: 18px;
         }
 
-        .code {
-            background: #010409;
-            border: 1px solid #30363d;
-            border-radius: 14px;
-            padding: 20px;
-            text-align: left;
-            overflow-x: auto;
-            color: #7ee787;
-            line-height: 1.8;
-            margin-bottom: 25px;
+        .highlight {
+            color: #e6edf3;
+            font-weight: 500;
+        }
+
+        /* Clean link styling for your projects */
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(88, 166, 255, 0.4);
+            transition: all 0.2s ease;
+        }
+        
+        a:hover {
+            border-bottom: 1px solid #58a6ff;
+            color: #79c0ff;
         }
 
         .footer {
-            margin-top: 20px;
-            color: #6e7681;
+            margin-top: 30px;
             font-size: 0.95rem;
-        }
-
-        .blink {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            color: #6e7681;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
-            .container {
-                padding: 25px;
+            p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="terminal-bar">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-        </div>
+        <!-- Replaced S with your stylized 5 -->
+        <h1>Hi, I'm <span class="five">5</span>hridhyan</h1>
 
-        <p class="intro">shridhyan@archlinux ~</p>
-
-        <h1>5hridhyan</h1>
-
-        <p class="tagline">
-            12th grader • Arch Linux enthusiast • Android modder • Security learner • AI/ML explorer<br>
-            Building weird stuff with Linux, Hackintosh, Hyprland and open-source tools.
+        <p>
+            I'm a 12th grader interested in Linux, Android modding, AI/ML, and cybersecurity.
         </p>
 
-        <div class="skills">
-            <div class="skill">Arch Linux</div>
-            <div class="skill">Hyprland</div>
-            <div class="skill">Hackintosh</div>
-            <div class="skill">Android Modding</div>
-            <div class="skill">Ubuntu Touch</div>
-            <div class="skill">Cybersecurity</div>
-            <div class="skill">AI / ML</div>
-            <div class="skill">Open Source</div>
-        </div>
-
-        <div class="code">
-            <p>$ neofetch</p>
-            <p>OS: Arch Linux x86_64</p>
-            <p>WM: Hyprland</p>
-            <p>Shell: zsh</p>
-            <p>Device: HP 247 G8 Notebook PC</p>
-            <p>Interests: linux • security • reverse engineering • ai/ml</p>
-            <p>Status: customizing everything<span class="blink">_</span></p>
-        </div>
-
-        <p class="footer">
-            Powered by Linux, caffeine, curiosity and late-night debugging.
+        <p>
+            I use <span class="highlight">Arch Linux</span> with
+            <span class="highlight">Hyprland</span> as my daily setup,
+            and I enjoy customizing configurations and experimenting with different operating systems.
+            I'm currently building <a href="https://github.com/atvknox/MARJARA" target="_blank">MARJARA</a>, an LLM training stack from scratch implementing RoPE, KV-caching, MoE, and GQA.
         </p>
+
+        <p>
+            I also successfully hackintoshed my Ryzen laptop to macOS Monterey, ported <span class="highlight">Ubuntu Touch</span> to a Xiaomi Redmi 7A, and spend my time exploring open-source tools and low-level tech.
+        </p>
+
+        <div class="footer">
+            ;)
+        </div>
     </div>
 </body>
 </html>
-

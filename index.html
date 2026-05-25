@@ -10,9 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             background: #000000;
             color: #ffffff;
@@ -42,27 +39,20 @@
             color: #ffffff;
             text-decoration: underline;
         }
-        .bottom-nav {
+        .blog-link {
             margin-top: 50px;
             font-family: monospace;
             font-size: 1.1rem;
         }
-        .bottom-nav a {
-            margin-right: 20px;
-            color: #ffffff;
+        .blog-link a {
+            color: #58a6ff;
             text-decoration: none;
-            border-bottom: 1px dashed #555555;
-            padding-bottom: 2px;
-            transition: 0.2s;
         }
-        .bottom-nav a:hover {
-            color: #aaaaaa;
-            border-color: #ffffff;
+        .blog-link a:hover {
+            text-decoration: underline;
         }
         .footer {
             margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed #222222;
             font-size: 0.95rem;
             color: #555555;
             font-family: monospace;
@@ -90,7 +80,7 @@
             ricing Hyprland, breaking Android phones, and trying operating systems on hardware
             they probably shouldn't run on. Of course, I love cats.
         </p>
-        <h2 id="about">About me</h2>
+        <h2>About me</h2>
         <p>
             I enjoy making hardware question its existence. I'm very much interested in cybersec, AI/ML
             I used Gentoo before this, but I escaped before compiling every single atom destroyed me completely ;)
@@ -101,14 +91,14 @@
             most of my projects are held together by curiosity, questionable decisions, 
             and occasionally breaking things badly enough to learn something useful :D
         </p>
-        <h2 id="projects">Projects</h2>
+        <h2>Projects</h2>
         <p>
             Recently, I've been trying to train a transformer stack called 
             <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>. 
             trying to compute attention weights on my current setup means my laptop fans sound 
             like a jet engine taking off, but watching the loss drop makes the thermal throttling worth it.
         </p>
-        <h2 id="hardware">About my laptop</h2>
+        <h2>About my laptop</h2>
         <p>
             My main machine is currently suffering greatly under my decisions <br>
             Its a HP 247 G8 Notebook PC w/ 6GB usable ram, ryzen 5 3500U, vega 8 iGPU, dual booted Arch linux and macOS 12
@@ -119,12 +109,11 @@
             This website is coded in HTML5 and CSS3, no heavy frameworks, 
             no bloated scripts—just plain texts and proudly hosted on GitHub Pages ;)
         </p>
-        <div class="bottom-nav">
-            <a href="#about">about</a>
-            <a href="#projects">projects</a>
-            <a href="#hardware">hardware</a>
+        <div class="blog-link">
+            → <a href="/blog/">read my blog</a>
         </div>
         <div class="footer">
+            
         </div>
     </div>
 </body>

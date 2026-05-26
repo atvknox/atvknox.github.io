@@ -1,16 +1,19 @@
-"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>atvknox's home</title>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>atvknox's home</title>
+
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <section class="the-top-part">
-        <div class="the-cat-drawing">
-            <pre class="ascii-fixer load-1">
+    <section class="hero">
+
+        <div class="ascii-container">
+<pre class="ascii-art">
 ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -30,50 +33,101 @@
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠀⠤⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⠿⠋⢃⠈⠢⡁⠒⠄⡀⠈⠁⠀⠀⠀⠀⠀⠀⠀
 ⣿⣿⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
-        </div>
-        
-        <div class="stuff-on-the-right">
-            <h1>Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
-            <div class="some-text-below-name load-3">Welcome to my corner of the internet.</div>
-            <div class="link-holder load-4">
-                <a href="/blog/">Blog</a> 
-                <a href="/media/">Media</a> 
-                <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
-            </div>
-        </div>
-    </section>
+⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</pre>
+        </div>
 
-    <main class="the-rest-of-the-stuff">
-        <div class="wrapping-everything"> 
-            <div>
-                <h2>About me</h2>
-                <p>I'm a student from Asia who spends way too much time experimenting with Linux distributions, ricing Hyprland, breaking Android phones, and making hardware question its existence.</p>
-                <p>My interests and hobbies include:</p>
-                <ul>
-                    <li>Linux systems administration &amp; kernel tinkering</li>
-                    <li>Experimenting with artificial intelligence and transformer stacks</li>
-                    <li>Porting alternative operating systems onto unsupported mobile devices</li>
-                    <li>Breaking things intentionally to figure out how they function under the hood</li>
-                    <li>Naturally, cats.</li>
-                </ul>
-            </div>
-            <hr />
-            <div>
-                <h2>Projects &amp; Focus</h2>
-                <p> Right now, most of my free compute is going toward training a custom transformer stack called <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>, calculating attention weights locally completely pins my CPU, making my laptop sound like a jet engine and run incredibly hot, but watching those loss logs steadily drop down makes the fan noise worth it.
-                    
-                <p>Aside from that, I maintain a working AMD Ryzen Hackintosh and recently managed to port Ubuntu Touch onto a Xiaomi Redmi 7A.  . Computing attention weights on my local system pushes the hardware limits, but watching the training loss drop makes it entirely worth it.</p>
-                <hr />
-                
-                <h2>my beloved laptop</h2>
-                <p>My main machine is currently suffering greatly under my decision. Its a HP 247 G8 Notebook PC w/ 6GB usable ram, ryzen 5 3500U, vega 8 iGPU, dual booted Arch linux and macOS 12 on a 512GB NVME SSD </p>
-                <hr />
-                
-                <h2>About the site</h2>
-                <p>This is an isolated, vanilla space coded purely in HTML5 and CSS3, proudly hosted on github</p>
-            </div>
-        </div>
-    </main>
+        <div class="hero-text">
+            <h1>Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
+
+            <p class="subtitle">
+                Welcome to my corner of the internet.
+            </p>
+
+            <nav class="nav-links">
+                <a href="/blog/">Blog</a>
+                <a href="/media/">Media</a>
+                <a href="https://atrnxa.github.io/" target="_blank">
+                    ATRNXA
+                </a>
+            </nav>
+        </div>
+
+    </section>
+
+    <main class="content">
+
+        <section>
+            <h2>About me</h2>
+
+            <p>
+                I'm a student from Asia who spends way too much time
+                experimenting with Linux distributions, ricing Hyprland,
+                breaking Android phones, and making hardware question its
+                existence.
+            </p>
+
+            <p>My interests include:</p>
+
+            <ul>
+                <li>Linux, system hardening, encryptions, networking etc.</li>
+                <li>AI/ML Cybersec, Android modding gaming</li>
+                <li>Porting OSs on unsupported devices</li>
+                <li>Breaking stuffs to learn how they work and fix it ;)</li>
+                <li>Naturally, cats</li>
+            </ul>
+        </section>
+
+        <hr />
+
+        <section>
+            <h2>Fancy projects</h2>
+
+            <p>
+                Right now, most of my free compute is going toward training a
+                custom transformer stack called
+                <a href="https://github.com/ATRNXA/MARJARA" target="_blank">
+                    MARJARA
+                </a>.
+
+                Running local attention calculations absolutely pins my CPU,
+                makes the fans scream, and turns my laptop into a jet engine
+                but watching the training loss slowly drop makes it worth it.
+            </p>
+
+            <p>
+                Aside from that, I maintain a working Ryzen Hackintosh and
+                recently ported Ubuntu Touch onto a Xiaomi Redmi 7A.
+            </p>
+        </section>
+
+        <hr />
+
+        <section>
+            <h2>My beloved laptop</h2>
+
+            <p>
+                HP 247 G8 Notebook PC<br />
+                Ryzen 5 3500U<br />
+                Vega 8 iGPU<br />
+                6GB usable RAM<br />
+                512GB NVMe SSD<br />
+                Dual booting Arch Linux + macOS Monterey
+            </p>
+        </section>
+
+        <hr />
+
+        <section>
+            <h2>About this site</h2>
+
+            <p>
+                This is a simple vanilla HTML + CSS space hosted on GitHub
+                Pages.
+            </p>
+        </section>
+
+    </main>
+
 </body>
-</html>"
+</html>

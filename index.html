@@ -4,217 +4,13 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>atvknox's home</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: #000000;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-
-        .hero-screen {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 6%;
-            padding-right: 6%;
-            position: relative;
-            gap: 5vw;
-        }
-
-        .hero-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .ascii-art {
-            font-family: monospace;
-            font-size: 9px;
-            line-height: 1.1;
-            letter-spacing: 0;
-            white-space: pre;
-            overflow: hidden;
-            color: #ffffff;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .hero-right {
-            max-width: 500px;
-        }
-
-        .hero-right h1 {
-            font-family: monospace;
-            font-size: 2.8rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-            letter-spacing: -1px;
-        }
-
-        .hero-right .subtitle {
-            font-size: 1.25rem;
-            color: #888888;
-        }
-
-
-        .hero-links {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: monospace;
-            font-size: 1.05rem;
-            display: flex;
-            gap: 32px;
-        }
-
-        .hero-links a, p a {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px dashed #555555;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-
-        .hero-links a:hover, p a:hover {
-            background: #ffffff;
-            color: #000000;
-            border-bottom-style: solid;
-            border-color: #ffffff;
-        }
-
-
-        .content-section {
-            padding: 120px 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 650px;
-        }
-
-        h2 {
-            font-family: monospace;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 60px;
-            margin-bottom: 24px;
-            font-weight: bold;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "> ";
-            color: #555555; 
-            margin-right: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: #ffffff;
-            margin-bottom: 24px;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        ul li {
-            font-size: 1rem;
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        ul li::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #555555;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: #222222; 
-            margin: 60px 0;
-        }
-
-
-        .fade-in {
-            opacity: 0;
-            animation: slideScan 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .fade-in.one { animation-delay: 0.15s; }
-        .fade-in.two { animation-delay: 0.45s; }
-        .fade-in.three { animation-delay: 0.75s; }
-        .fade-in.four { animation-delay: 1.05s; }
-
-        @keyframes slideScan {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        @media (max-width: 968px) {
-            .hero-screen {
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 40px;
-                padding-left: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .ascii-art { font-size: 6.5px; }
-            .hero-right h1 { font-size: 2.2rem; }
-        }
-
-        @media (max-width: 640px) {
-            .hero-screen { padding-left: 24px; }
-            .content-section { padding: 80px 24px; }
-            .ascii-art { font-size: 4.8px; }
-            .hero-links { 
-                flex-direction: column; 
-                gap: 16px; 
-                left: 24px;
-                transform: none;
-                bottom: 60px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
     <section class="hero-screen">
         <div class="hero-left">
-            <pre class="ascii-art fade-in one">
+            <pre class="ascii-art">
 ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -233,16 +29,16 @@
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠀⠤⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⠿⠋⢃⠈⠢⡁⠒⠄⡀⠈⠁⠀⠀⠀⠀⠀⠀⠀
-⣿⣿⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⠟⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
         </div>
         
         <div class="hero-right">
-            <h1 class="fade-in two">Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
-            <div class="subtitle fade-in three">Welcome to my corner of the internet.</div>
+            <h1>Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
+            <div class="subtitle">Welcome to my little corner of the internet.</div>
         </div>
 
-        <div class="hero-links fade-in four">
+        <div class="hero-links">
             <a href="/blog/">Blog</a> 
             <a href="/media/">Media</a> 
             <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
@@ -255,17 +51,16 @@
             <div>
                 <h2>About me</h2>
                 <p>
-                    I'm a student from Asia who spends way too much time experimenting with Linux distributions,
-                    riceing Hyprland, breaking Android phones, and making hardware question its existence.
+                    I'm a student from Asia. When I'm not dealing with classes, I spend most of my time breaking and fixing Linux installs, ricing Hyprland configs, flashing custom ROMs on forgotten Android devices, and trying to force low-end hardware to do things it was never meant to do.
                 </p>
                 
-                <p>My interests and hobbies include:</p>
+                <p>Some things I like to mess around with:</p>
                 <ul>
-                    <li>Linux systems administration &amp; kernel tinkering</li>
-                    <li>Experimenting with artificial intelligence and transformer stacks</li>
-                    <li>Porting alternative operating systems onto unsupported mobile devices</li>
-                    <li>Breaking things intentionally to figure out how they function under the hood</li>
-                    <li>Naturally, cats.</li>
+                    <li>Linux, ricing Hyprland, etc.</li>
+                    <li>Cybersec, system hardening, encryptions, networking, AI/ML etc.</li>
+                    <li>Porting alternative operating systems onto unsupported, old mobile hardware, Android modding</li>
+                    <li>breaking things badly enough to learn something useful :D</li>
+                    <li>Naturally, cats</li>
                 </ul>
             </div>
 
@@ -274,26 +69,24 @@
             <div>
                 <h2>Projects &amp; Focus</h2>
                 <p>
-                    Recently, I've been trying to train a transformer stack called 
-                    <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>. 
-                    Computing attention weights on my local system pushes the hardware limits, making my laptop fans sound like a jet engine taking off, but watching the training loss drop makes it entirely worth it.
+                    Right now, most of my free compute is going toward training a custom transformer stack called <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>, calculating attention weights locally completely pins my CPU, making my laptop sound like a jet engine and run incredibly hot, but watching those loss logs steadily drop down makes the fan noise worth it.
                 </p>
                 <p>
-                    Other projects include setting up a custom Hackintosh setup on an AMD Ryzen architecture and successfully deploying Ubuntu Touch onto an aging Xiaomi Redmi 7A. 
+                    Aside from that, I maintain a working AMD Ryzen Hackintosh and recently managed to port Ubuntu Touch onto a Xiaomi Redmi 7A.
                 </p>
 
                 <hr />
 
-                <h2>The Workspace</h2>
+                <h2>My beloved machine</h2>
                 <p>
-                    My main environment is driven by an HP 247 G8 Notebook PC with 6GB usable RAM, an AMD Ryzen 5 3500U processor, and a Vega 8 iGPU. It runs a minimal, dual-boot environment containing  Arch Linux and macOS 12 on a 512GB NVMe SSD.
+                    My main machine is currently suffering greatly under my decisions <br> Its a HP 247 G8 Notebook PC w/ 6GB usable ram, ryzen 5 3500U, vega 8 iGPU, dual booted Arch linux and macOS 12 on a 512GB NVME SSD
                 </p>
 
                 <hr />
 
                 <h2>About the site</h2>
                 <p>
-                    This is an isolated, vanilla space coded purely in HTML5 and CSS3. No tracking tools, no analytical databases, and no heavy frameworks—just simple static files hosted on GitHub Pages.
+                    coded in HTML5 and CSS3, proudly hosted on github pages
                 </p>
             </div>
 

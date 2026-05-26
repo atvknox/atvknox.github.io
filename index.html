@@ -64,27 +64,30 @@
         .hero-right .subtitle {
             font-size: 1.25rem;
             color: #888888;
+            margin-bottom: 24px;
         }
 
         
-        .scroll-hint {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+        .hero-links {
             font-family: monospace;
-            font-size: 0.85rem;
-            color: #555555;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: pulse 2s infinite;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            pointer-events: none;
+            font-size: 1.05rem;
+            display: flex;
+            gap: 32px;
         }
 
-        .scroll-hint.hidden {
-            opacity: 0 !important;
-            transform: translate(-50%, 15px);
+        .hero-links a, p a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dashed #555555;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .hero-links a:hover, p a:hover {
+            background: #ffffff;
+            color: #000000;
+            border-bottom-style: solid;
+            border-color: #ffffff;
         }
 
      
@@ -145,21 +148,6 @@
             color: #555555;
         }
 
-        p a, .external-links a {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px dashed #555555;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-
-        p a:hover, .external-links a:hover {
-            background: #ffffff;
-            color: #000000;
-            border-bottom-style: solid;
-            border-color: #ffffff;
-        }
-
         hr {
             border: 0;
             height: 1px;
@@ -167,15 +155,7 @@
             margin: 60px 0;
         }
 
-        .external-links {
-            margin-top: 40px;
-            font-family: monospace;
-            font-size: 1.05rem;
-            display: flex;
-            gap: 32px;
-        }
-
-       
+        
         .fade-in {
             opacity: 0;
             animation: slideScan 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -194,11 +174,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
         }
 
         
@@ -221,7 +196,7 @@
             .hero-screen { padding-left: 24px; }
             .content-section { padding: 80px 24px; }
             .ascii-art { font-size: 4.8px; }
-            .external-links { flex-direction: column; gap: 16px; }
+            .hero-links { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
@@ -255,9 +230,12 @@
         <div class="hero-right">
             <h1 class="fade-in two">Hi, I'm atvknox</h1>
             <div class="subtitle fade-in three">Welcome to my corner of the internet.</div>
+            <div class="hero-links fade-in three">
+                <a href="/blog/">Blog</a> 
+                <a href="/media/">Media</a> 
+                <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
+            </div>
         </div>
-
-        <div id="scrollHint" class="scroll-hint fade-in three">↓ scroll down</div>
     </section>
 
     <main class="content-section">
@@ -267,7 +245,7 @@
                 <h2>About me</h2>
                 <p>
                     I'm a student from Asia who spends way too much time experimenting with Linux distributions,
-                    ricing Hyprland, breaking Android phones, and making hardware question its existence.
+                    riceing Hyprland, breaking Android phones, and making hardware question its existence.
                 </p>
                 
                 <p>My interests and hobbies include:</p>
@@ -306,14 +284,6 @@
                 <p>
                     This is an isolated, vanilla space coded purely in HTML5 and CSS3. No tracking tools, no analytical databases, and no heavy frameworks—just simple static files hosted on GitHub Pages.
                 </p>
-
-                <hr />
-
-                <div class="external-links">
-                    <a href="/blog/">Blog</a> 
-                    <a href="/media/">Media</a> 
-                    <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
-                </div>
             </div>
 
         </div>

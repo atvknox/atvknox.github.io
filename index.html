@@ -19,7 +19,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-      
+
         .hero-screen {
             width: 100%;
             height: 100vh;
@@ -64,11 +64,14 @@
         .hero-right .subtitle {
             font-size: 1.25rem;
             color: #888888;
-            margin-bottom: 24px;
         }
 
-        
+
         .hero-links {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: monospace;
             font-size: 1.05rem;
             display: flex;
@@ -90,7 +93,7 @@
             border-color: #ffffff;
         }
 
-     
+
         .content-section {
             padding: 120px 40px;
             width: 100%;
@@ -155,7 +158,7 @@
             margin: 60px 0;
         }
 
-        
+
         .fade-in {
             opacity: 0;
             animation: slideScan 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -164,6 +167,7 @@
         .fade-in.one { animation-delay: 0.15s; }
         .fade-in.two { animation-delay: 0.45s; }
         .fade-in.three { animation-delay: 0.75s; }
+        .fade-in.four { animation-delay: 1.05s; }
 
         @keyframes slideScan {
             from {
@@ -176,7 +180,7 @@
             }
         }
 
-        
+
         @media (max-width: 968px) {
             .hero-screen {
                 flex-direction: column;
@@ -196,7 +200,13 @@
             .hero-screen { padding-left: 24px; }
             .content-section { padding: 80px 24px; }
             .ascii-art { font-size: 4.8px; }
-            .hero-links { flex-direction: column; gap: 16px; }
+            .hero-links { 
+                flex-direction: column; 
+                gap: 16px; 
+                left: 24px;
+                transform: none;
+                bottom: 60px;
+            }
         }
     </style>
 </head>
@@ -228,13 +238,14 @@
         </div>
         
         <div class="hero-right">
-            <h1 class="fade-in two">Hi, I'm atvknox</h1>
+            <h1 class="fade-in two">Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
             <div class="subtitle fade-in three">Welcome to my corner of the internet.</div>
-            <div class="hero-links fade-in three">
-                <a href="/blog/">Blog</a> 
-                <a href="/media/">Media</a> 
-                <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
-            </div>
+        </div>
+
+        <div class="hero-links fade-in four">
+            <a href="/blog/">Blog</a> 
+            <a href="/media/">Media</a> 
+            <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
         </div>
     </section>
 

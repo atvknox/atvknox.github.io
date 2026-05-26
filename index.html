@@ -32,7 +32,7 @@
 
         .top-left {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 1.8rem;
             flex-wrap: wrap;
         }
@@ -40,7 +40,7 @@
         .glyph {
             flex-shrink: 0;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .glyph pre {
@@ -57,8 +57,7 @@
         .signal {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            padding-top: 0.2rem;
+            justify-content: center;
         }
 
         .signal h1 {
@@ -79,17 +78,24 @@
         .echo {
             color: #8b8b8b;
             font-size: 0.9rem;
-            margin-top: 2px;
+        }
+
+        .portal-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12rem;
+            margin-bottom: 4rem;
         }
 
         .portal {
-            margin-top: 2.5rem;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
             font-family: monospace;
-            font-size: 0.9rem;
+            font-size: 1rem;
             flex-wrap: wrap;
         }
 
@@ -99,6 +105,7 @@
             text-decoration: none;
             border-bottom: 1px dashed #555;
             transition: background .3s ease, color .3s ease, border-color .3s ease;
+            padding: 0.2rem 0;
         }
 
         .portal a:hover,
@@ -221,8 +228,8 @@
                 white-space: nowrap;
             }
 
-            .portal {
-                margin-top: 2rem;
+            .portal-wrapper {
+                margin-top: 8rem;
             }
         }
 
@@ -252,9 +259,14 @@
                 white-space: normal;
             }
 
+            .portal-wrapper {
+                margin-top: 6rem;
+                margin-bottom: 2rem;
+            }
+
             .portal {
-                margin-top: 1.8rem;
-                gap: 1.5rem;
+                gap: 2rem;
+                font-size: 0.9rem;
             }
 
             .matrix {
@@ -270,6 +282,10 @@
             .signal h1 {
                 font-size: 1.1rem;
             }
+
+            .portal-wrapper {
+                margin-top: 4rem;
+            }
         }
 
         @media (min-width: 1400px) {
@@ -283,6 +299,10 @@
 
             .top-left {
                 gap: 2.2rem;
+            }
+
+            .portal-wrapper {
+                margin-top: 14rem;
             }
         }
     </style>
@@ -326,10 +346,12 @@
         </div>
     </div>
 
-    <div class="portal link-phase">
-        <a href="/blog/">Blog</a>
-        <a href="/media/">Media</a>
-        <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
+    <div class="portal-wrapper">
+        <div class="portal link-phase">
+            <a href="/blog/">Blog</a>
+            <a href="/media/">Media</a>
+            <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
+        </div>
     </div>
 </section>
 

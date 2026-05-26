@@ -21,243 +21,151 @@
             overflow-x: hidden;
         }
 
-        .vault {
-            width: 100%;
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            padding-left: 6%;
-            padding-right: 6%;
-
-            gap: 5vw;
-        }
-
-        .glyph {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .glyph pre {
-            font-family: monospace;
-            font-size: 9px;
-            line-height: 1.08;
-            white-space: pre;
-            color: #fff;
-
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .signal {
-            max-width: 520px;
-        }
-
-        .signal h1 {
-            font-family: monospace;
-            font-size: clamp(3rem, 5vw, 5rem);
-            line-height: 1;
-            letter-spacing: -2px;
-            margin-bottom: 14px;
-            font-weight: 700;
-        }
-
-        .echo {
-            font-size: 1.2rem;
-            color: #8b8b8b;
-        }
-
-.portal {
-    margin-top: 240px;
+.vault {
+    width: 100%;
+    min-height: 100vh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
 
-    gap: 34px;
+    padding-left: 6%;
+    padding-right: 6%;
+
+    gap: 7vw;
+}
+
+.glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.glyph pre {
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 1.04;
+    white-space: pre;
+    color: #fff;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.signal {
+    width: 100%;
+    max-width: 520px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.signal h1 {
+    font-family: monospace;
+    font-size: clamp(2.1rem, 3vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    margin-bottom: 18px;
+}
+
+.alias {
+    white-space: nowrap;
+    display: inline;
+}
+
+.echo {
+    font-size: 1.08rem;
+    color: #8a8a8a;
+}
+
+.portal {
+    width: 100%;
+
+    margin-top: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 42px;
 
     font-family: monospace;
     font-size: 1rem;
-
-    width: 100%;
 }
 
-        .portal a,
-        p a {
-            color: #fff;
-            text-decoration: none;
+.portal a,
+p a {
+    color: #fff;
+    text-decoration: none;
 
-            border-bottom: 1px dashed #555;
+    border-bottom: 1px dashed #555;
 
-            transition:
-                background .2s ease,
-                color .2s ease,
-                border-color .2s ease;
-        }
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
 
-        .portal a:hover,
-        p a:hover {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
-        }
+.portal a:hover,
+p a:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
 
-        .matrix {
-            width: 100%;
+@media (max-width: 980px) {
+    .vault {
+        flex-direction: column;
 
-            display: flex;
-            justify-content: center;
+        justify-content: center;
+        align-items: flex-start;
 
-            padding: 120px 40px;
-        }
+        gap: 48px;
 
-        .core {
-            width: 100%;
-            max-width: 680px;
-        }
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 
-        h2 {
-            font-family: monospace;
-            font-size: 1rem;
+    .glyph pre {
+        font-size: 8px;
+    }
 
-            text-transform: uppercase;
-            letter-spacing: 2px;
+    .portal {
+        justify-content: flex-start;
+        margin-top: 110px;
+    }
+}
 
-            margin-top: 60px;
-            margin-bottom: 24px;
+@media (max-width: 640px) {
+    .vault {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 
-            display: flex;
-            align-items: center;
-        }
+    .glyph pre {
+        font-size: 6px;
+    }
 
-        h2::before {
-            content: "> ";
-            color: #555;
-            margin-right: 10px;
-        }
+    .signal h1 {
+        font-size: 1.8rem;
+    }
 
-        p {
-            color: #e3e3e3;
-            margin-bottom: 24px;
-        }
+    .echo {
+        font-size: .98rem;
+    }
 
-        ul {
-            list-style: none;
-            margin-bottom: 24px;
-        }
+    .portal {
+        margin-top: 90px;
+        gap: 20px;
 
-        ul li {
-            position: relative;
-
-            padding-left: 22px;
-            margin-bottom: 12px;
-
-            color: #e3e3e3;
-        }
-
-        ul li::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #555;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: #222;
-            margin: 60px 0;
-        }
-
-        .cat-phase,
-        .name-phase,
-        .text-phase,
-        .link-phase {
-            opacity: 0;
-            transform: translateY(18px);
-
-            animation: appear .95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .cat-phase {
-            animation-delay: .12s;
-        }
-
-        .name-phase {
-            animation-delay: .62s;
-        }
-
-        .text-phase {
-            animation-delay: 1s;
-        }
-
-        .link-phase {
-            animation-delay: 1.45s;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 980px) {
-            .vault {
-                flex-direction: column;
-
-                justify-content: center;
-                align-items: flex-start;
-
-                gap: 40px;
-
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-
-            .glyph pre {
-                font-size: 6.5px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .vault {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-
-            .glyph pre {
-                font-size: 4.8px;
-            }
-
-            .signal h1 {
-                font-size: 2.3rem;
-            }
-
-            .echo {
-                font-size: 1rem;
-            }
-
-            .portal {
-                flex-wrap: wrap;
-                gap: 18px;
-                margin-top: 85px;
-            }
-
-            .matrix {
-                padding: 80px 24px;
-            }
-        }
-            .alias {
-                white-space: nowrap;
+        flex-wrap: wrap;
+    }
 }
     </style>
 </head>

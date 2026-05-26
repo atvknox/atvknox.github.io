@@ -12,6 +12,223 @@ body {
     line-height: 1.8;
 }
 
+.intro-viewport {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    padding: 40px 6%;
+    position: relative;
+}
+
+.brand-logo {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+}
+
+.ascii-art {
+    font-size: 8.2px;
+    line-height: 1.08;
+    white-space: pre;
+    color: #fff;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    animation: premium-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+}
+
+.brand-title {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 35px;
+    padding-top: 12px;
+}
+
+h1 {
+    font-family: inherit;
+    font-size: 2.15rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    opacity: 0;
+    animation: premium-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.35s;
+}
+
+.subtitle {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.35rem;
+    color: #888;
+    text-align: center;
+    max-width: 600px;
+    opacity: 0;
+    animation: premium-rise 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.85s; 
+}
+
+.nav-footer {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+    padding-bottom: 25px;
+    opacity: 0;
+    animation: premium-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1.65s; 
+}
+
+.nav-footer a, .journal-body p a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted #555;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-footer a:hover, .journal-body p a:hover {
+    background: #fff;
+    color: #000;
+    border-bottom: 1px solid #fff;
+}
+
+.journal-wrapper {
+    padding: 120px 0 160px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.journal-body {
+    width: 100%;
+    max-width: 585px;
+    padding: 0 24px;
+}
+
+h2 {
+    font-size: 0.95rem;
+    margin-top: 70px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: lowercase;
+    letter-spacing: 1.5px;
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 24px;
+}
+
+ul {
+    margin-bottom: 32px;
+    list-style-type: "* ";
+    padding-left: 16px;
+}
+
+ul li {
+    margin-bottom: 12px;
+    color: #ccc;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #222;
+    margin-top: 60px;
+    margin-bottom: 55px;
+}
+
+@keyframes premium-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 960px) {
+    .intro-viewport {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 60px 35px;
+    }
+    .brand-title {
+        padding-left: 0;
+        padding-top: 0;
+    }
+    .subtitle {
+        text-align: left;
+        align-self: flex-start;
+        justify-self: flex-start;
+        font-size: 1.2rem;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .nav-footer {
+        justify-content: flex-start;
+        padding-bottom: 35px;
+        margin-top: 10px;
+    }
+    .journal-wrapper {
+        padding-top: 20px;
+        justify-content: flex-start;
+        padding-left: 35px;
+    }
+    .journal-body {
+        padding: 0;
+    }
+}
+
+@media (max-width: 711px) {
+    .ascii-art { 
+        font-size: 6.8px; 
+    }
+    h1 { 
+        font-size: 1.9rem; 
+    }
+}
+
+@media (max-width: 512px) {
+    .intro-viewport { 
+        padding-left: 24px; 
+        padding-right: 24px;
+    }
+    .journal-wrapper { 
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .ascii-art { 
+        font-size: 4.8px; 
+    }
+    .nav-footer { 
+        gap: 28px; 
+    }
+}* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
 section {
     width: 100%;
     height: 100vh;

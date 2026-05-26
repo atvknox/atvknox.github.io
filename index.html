@@ -1,324 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>atvknox's home</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>atvknox's home — terminal core</title>
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#000;
-            color:#fff;
-            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-            overflow-x:hidden;
-            -webkit-font-smoothing:antialiased;
+        body {
+            background: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* HERO */
-
-        .vault{
-            width:100%;
-            min-height:100vh;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            padding-left:5%;
-            padding-right:5%;
-
-            gap:2vw;
+        /* HERO — tighter horizontal alignment: cat + name side-by-side, no heavy gap */
+        .vault {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 5%;
+            padding-right: 5%;
+            gap: 1.5rem;          /* reduced from 2vw → makes them sit closer */
+            flex-wrap: wrap;       /* safety on very narrow screens, but keeps side-by-side when possible */
         }
 
-        /* BIGGER CAT */
-
-        .glyph{
-            flex-shrink:0;
-            display:flex;
-            align-items:center;
+        /* ----- BIGGER CAT ----- */
+        .glyph {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .glyph pre{
-            font-family:monospace;
-            font-size:13px;
-            line-height:1.01;
-            color:#fff;
-            white-space:pre;
-
-            pointer-events:none;
-            user-select:none;
+        .glyph pre {
+            font-family: monospace;
+            font-size: 18px;       /* ⬆️ noticeably bigger cat (was 13px) */
+            line-height: 1.05;
+            color: #fff;
+            white-space: pre;
+            pointer-events: none;
+            user-select: none;
+            margin: 0;
+            text-shadow: 0 0 2px rgba(255,255,255,0.1);
         }
 
-        /* RIGHT SIDE */
-
-        .signal{
-            width:auto;
-
-            display:flex;
-            flex-direction:column;
-
-            justify-content:center;
+        /* RIGHT SIDE — adjusted to sit flush next to bigger cat */
+        .signal {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* SMALLER NAME + PERFECTLY NEXT TO CAT */
-
-        .signal h1{
-            font-family:monospace;
-            font-size:clamp(1.5rem,2vw,2.3rem);
-
-            line-height:1.05;
-            font-weight:700;
-
-            letter-spacing:-1px;
-
-            white-space:nowrap;
-
-            margin-bottom:14px;
+        /* SMALLER NAME — "Hi, I'm 丂hridhyan" reduced & tight */
+        .signal h1 {
+            font-family: monospace;
+            font-size: clamp(1rem, 3vw, 1.5rem);   /* smaller than original: was 1.5rem->2.3rem now 1rem->1.5rem */
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+            margin-bottom: 8px;
         }
 
-        .alias{
-            white-space:nowrap;
-            display:inline-block;
+        .alias {
+            white-space: nowrap;
+            display: inline-block;
         }
 
-        .echo{
-            color:#8b8b8b;
-            font-size:1rem;
+        /* subtitle text remains readable but balanced */
+        .echo {
+            color: #8b8b8b;
+            font-size: 0.9rem;
+            margin-bottom: 0;
         }
 
-        /* LINKS WAYYY DOWN */
-
-        .portal{
-            margin-top:340px;
-
-            width:100%;
-
-            display:flex;
-            justify-content:center;
-            align-items:center;
-
-            gap:42px;
-
-            font-family:monospace;
-            font-size:1rem;
+        /* PORTAL LINKS — moved close below the name, no huge margin-top */
+        .portal {
+            margin-top: 28px;      /* was 340px → now directly under name+subtitle */
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
         .portal a,
-        p a{
-            color:#fff;
-            text-decoration:none;
-
-            border-bottom:1px dashed #555;
-
-            transition:
-                background .2s ease,
-                color .2s ease,
-                border-color .2s ease;
+        p a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed #555;
+            transition: background .2s ease, color .2s ease, border-color .2s ease;
         }
 
         .portal a:hover,
-        p a:hover{
-            background:#fff;
-            color:#000;
-            border-color:#fff;
+        p a:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
         }
 
-        /* CONTENT */
-
-        .matrix{
-            width:100%;
-
-            display:flex;
-            justify-content:center;
-
-            padding:120px 40px;
+        /* MAIN CONTENT SECTION */
+        .matrix {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 90px 40px 120px;
         }
 
-        .core{
-            width:100%;
-            max-width:680px;
+        .core {
+            width: 100%;
+            max-width: 680px;
         }
 
-        h2{
-            font-family:monospace;
-            font-size:1rem;
-
-            text-transform:uppercase;
-            letter-spacing:2px;
-
-            margin-top:60px;
-            margin-bottom:24px;
-
-            display:flex;
-            align-items:center;
+        h2 {
+            font-family: monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
         }
 
-        h2::before{
-            content:"> ";
-            color:#555;
-            margin-right:10px;
+        h2::before {
+            content: "> ";
+            color: #555;
+            margin-right: 10px;
         }
 
-        p{
-            color:#e3e3e3;
-            margin-bottom:24px;
-            line-height:1.8;
+        p {
+            color: #e3e3e3;
+            margin-bottom: 24px;
+            line-height: 1.8;
         }
 
-        ul{
-            list-style:none;
-            margin-bottom:24px;
+        ul {
+            list-style: none;
+            margin-bottom: 24px;
         }
 
-        ul li{
-            position:relative;
-
-            padding-left:22px;
-            margin-bottom:12px;
-
-            color:#e3e3e3;
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 12px;
+            color: #e3e3e3;
         }
 
-        ul li::before{
-            content:"-";
-            position:absolute;
-            left:0;
-            color:#555;
+        ul li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: #555;
         }
 
-        hr{
-            border:0;
-            height:1px;
-            background:#222;
-            margin:60px 0;
+        hr {
+            border: 0;
+            height: 1px;
+            background: #222;
+            margin: 60px 0;
         }
 
-        /* ANIMATIONS */
-
+        /* ANIMATIONS - smooth entrance but respecting new layout */
         .cat-phase,
         .name-phase,
         .text-phase,
-        .link-phase{
-            opacity:0;
-            transform:translateY(18px);
-
-            animation:appear .95s cubic-bezier(0.16,1,0.3,1) forwards;
+        .link-phase {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: appear .95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .cat-phase{
-            animation-delay:.1s;
+        .cat-phase {
+            animation-delay: 0.1s;
         }
 
-        .name-phase{
-            animation-delay:.45s;
+        .name-phase {
+            animation-delay: 0.35s;
         }
 
-        .text-phase{
-            animation-delay:.75s;
+        .text-phase {
+            animation-delay: 0.6s;
         }
 
-        .link-phase{
-            animation-delay:1.2s;
+        .link-phase {
+            animation-delay: 0.9s;
         }
 
-        @keyframes appear{
-            from{
-                opacity:0;
-                transform:translateY(26px);
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(26px);
             }
-
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
-        }
-
-        /* TABLET */
-
-        @media (max-width:980px){
-
-            .vault{
-                flex-direction:column;
-
-                justify-content:center;
-                align-items:flex-start;
-
-                gap:35px;
-
-                padding-left:40px;
-                padding-right:40px;
-                padding-top:70px;
-                padding-bottom:70px;
-            }
-
-            .glyph pre{
-                font-size:9px;
-            }
-
-            .signal h1{
-                font-size:2rem;
-            }
-
-            .portal{
-                margin-top:220px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* MOBILE */
-
-        @media (max-width:640px){
-
-            .vault{
-                padding-left:24px;
-                padding-right:24px;
+        /* TABLET — maintain cat size but scale heading elegantly */
+        @media (max-width: 980px) {
+            .vault {
+                flex-direction: row;        /* keep side-by-side until it’s too narrow */
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 1.2rem;
+                padding: 60px 32px;
             }
 
-            .glyph pre{
-                font-size:6.2px;
+            .glyph pre {
+                font-size: 15px;     /* still bigger than original 13px, but adjusts for smaller view */
             }
 
-            .signal h1{
-                font-size:1.55rem;
-                white-space:normal;
+            .signal h1 {
+                font-size: 1.25rem;
+                white-space: nowrap;
             }
 
-            .echo{
-                font-size:1rem;
-            }
-
-            .portal{
-                margin-top:170px;
-
-                justify-content:flex-start;
-
-                gap:20px;
-                flex-wrap:wrap;
-            }
-
-            .matrix{
-                padding:80px 24px;
+            .portal {
+                margin-top: 24px;
             }
         }
 
+        /* MOBILE — when screen gets cramped, stack cat + text vertically, but cat still prominent */
+        @media (max-width: 680px) {
+            .vault {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 50px 24px;
+                gap: 1.8rem;
+            }
+
+            .glyph pre {
+                font-size: 12px;      /* on mobile: cat stays bigger than original 6.2px — much more visible */
+            }
+
+            .signal {
+                align-items: center;
+            }
+
+            .signal h1 {
+                font-size: 1.3rem;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .alias {
+                white-space: normal;
+            }
+
+            .echo {
+                text-align: center;
+            }
+
+            .portal {
+                justify-content: center;
+                margin-top: 16px;
+                gap: 1.4rem;
+            }
+
+            .matrix {
+                padding: 60px 24px;
+            }
+        }
+
+        /* even smaller devices — cat still big enough to enjoy */
+        @media (max-width: 480px) {
+            .glyph pre {
+                font-size: 9.5px;    /* crisp and readable, bigger than the original 6.2px! */
+            }
+
+            .signal h1 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* optional: fine-tune for ultra-wide where cat+name can breathe but stay close */
+        @media (min-width: 1400px) {
+            .glyph pre {
+                font-size: 21px;      /* even bigger cat on large displays */
+            }
+
+            .signal h1 {
+                font-size: 1.6rem;
+            }
+
+            .vault {
+                gap: 2rem;
+            }
+        }
+
+        /* name-phase + text-phase inline adjustments for perfect vertical alignment */
+        .signal .echo {
+            margin-top: 2px;
+        }
     </style>
 </head>
-
 <body>
 
 <section class="vault">
-
-    <!-- CAT -->
-
+    <!-- BIGGER CAT (font-size boosted to 18px baseline) -->
     <div class="glyph">
-
-<pre class="cat-phase">
+        <pre class="cat-phase">
 ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -340,45 +337,33 @@
 ⣿⣿⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 </pre>
-
     </div>
 
-    <!-- RIGHT SIDE -->
-
+    <!-- RIGHT SIDE: smaller heading + subtitle + portal (all next to cat) -->
     <div class="signal">
-
         <h1 class="name-phase">
             Hi,&nbsp;I'm&nbsp;<span class="alias">丂hridhyan</span>
         </h1>
-
         <div class="echo text-phase">
             Welcome to my corner of the internet.
         </div>
-
         <div class="portal link-phase">
             <a href="/blog/">Blog</a>
             <a href="/media/">Media</a>
             <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
         </div>
-
     </div>
-
 </section>
 
 <main class="matrix">
-
     <div class="core">
-
         <h2>About me</h2>
-
         <p>
             I'm a student from Asia who spends way too much time experimenting
             with Linux distributions, ricing Hyprland, breaking Android phones,
             and making hardware question its existence.
         </p>
-
         <p>My interests and hobbies include:</p>
-
         <ul>
             <li>Linux, system config, ricing Hyprland</li>
             <li>System hardening, networking, encryption, cybersecurity</li>
@@ -390,14 +375,12 @@
         <hr />
 
         <h2>My projects</h2>
-
         <p>
             Recently, I've been trying to train a transformer stack called
             <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>.
             Computing attention weights on my local system pushes the hardware
             limits, making my laptop fans sound like a jet engine taking off.
         </p>
-
         <p>
             Aside from that, I somehow managed to setup a Hackintosh on AMD Ryzen
             and successfully port Ubuntu Touch to my Xiaomi Redmi 7A.
@@ -406,7 +389,6 @@
         <hr />
 
         <h2>My beloved machine</h2>
-
         <p>
             It's a HP 247 G8 Notebook PC w/ 6GB usable RAM, an Ryzen 5 3500U,
             Vega 8 iGPU, dual-booting Arch Linux and macOS 12
@@ -416,13 +398,10 @@
         <hr />
 
         <h2>About the site</h2>
-
         <p>
             coded HTML5 and CSS3, hosted on GitHub Pages.
         </p>
-
     </div>
-
 </main>
 
 </body>

@@ -4,77 +4,329 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>atvknox's home</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. HERO PHASE - Hybrid layout pairing the Pinned Cat with Chris's clean Intro style */
+        .hero-screen {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 6%;
+            padding-right: 6%;
+            position: relative;
+            gap: 5vw;
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .ascii-art {
+            font-family: monospace;
+            font-size: 9px;
+            line-height: 1.1;
+            letter-spacing: 0;
+            white-space: pre;
+            overflow: hidden;
+            color: #ffffff;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hero-right {
+            max-width: 500px;
+        }
+
+        .hero-right h1 {
+            font-family: monospace;
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .hero-right .subtitle {
+            font-size: 1.25rem;
+            color: #888888;
+        }
+
+        /* Interactive auto-disappearing indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #555555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+        }
+
+        .scroll-hint.hidden {
+            opacity: 0 !important;
+            transform: translate(-50%, 15px);
+        }
+
+        /* 2. CONTENT PHASE - Perfectly centered down the middle */
+        .content-section {
+            padding: 120px 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        h2 {
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "> ";
+            color: #555555; 
+            margin-right: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        ul li {
+            font-size: 1rem;
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        ul li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: #555555;
+        }
+
+        p a, .external-links a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px dashed #555555;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        p a:hover, .external-links a:hover {
+            background: #ffffff;
+            color: #000000;
+            border-bottom-style: solid;
+            border-color: #ffffff;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #222222; 
+            margin: 60px 0;
+        }
+
+        .external-links {
+            margin-top: 40px;
+            font-family: monospace;
+            font-size: 1.05rem;
+            display: flex;
+            gap: 32px;
+        }
+
+        /* THE PREMIUM CUBIC-BEZIER ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            animation: slideScan 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .fade-in.one { animation-delay: 0.15s; }
+        .fade-in.two { animation-delay: 0.45s; }
+        .fade-in.three { animation-delay: 0.75s; }
+
+        @keyframes slideScan {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* RESPONSIVE STRUCTURES */
+        @media (max-width: 968px) {
+            .hero-screen {
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 40px;
+                padding-left: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ascii-art { font-size: 6.5px; }
+            .hero-right h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-screen { padding-left: 24px; }
+            .content-section { padding: 80px 24px; }
+            .ascii-art { font-size: 4.8px; }
+            .external-links { flex-direction: column; gap: 16px; }
+        }
+    </style>
 </head>
 <body>
 
-    <section class="hero-screen">
-        
-        <div class="hero-right">
-            <h1 class="fade-in two">Hi, I'm <span aria-label="Shridhyan">丂hridhyan</span></h1>
-            <div class="subtitle fade-in three">Welcome to my corner of the internet.</div>
-        </div>
+    <section class="hero-screen">
+        <div class="hero-left">
+            <pre class="ascii-art fade-in one">
+⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣄⣀⣀⣤⣤⣶⣾⣿⣿⣿⡷
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀
+⣿⣿⣿⡇⠀⡾⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀
+⣿⣿⣿⣧⡀⠁⣀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⢹⠉⠙⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣀⠀⣀⣼⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠀⠤⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⠿⠋⢃⠈⠢⡁⠒⠄⡀⠈⠁⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+        </div>
+        
+        <div class="hero-right">
+            <h1 class="fade-in two">Hi, I'm atvknox</h1>
+            <div class="subtitle fade-in three">Welcome to my corner of the internet.</div>
+        </div>
 
-        <div class="hero-links fade-in four">
-            <a href="/blog/">Blog</a> 
-            <a href="/media/">Media</a> 
-            <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
-        </div>
-    </section>
+        <div id="scrollHint" class="scroll-hint fade-in three">↓ scroll down</div>
+    </section>
 
-    <main class="content-section">
-        <div class="container"> 
-            
-            <div>
-                <h2>About me</h2>
-                <p>
-                    I'm a student from Asia who spends way too much time experimenting with Linux distributions,
-                    riceing Hyprland, breaking Android phones, and making hardware question its existence.
-                </p>
-                
-                <p>My interests and hobbies include:</p>
-                <ul>
-                    <li>Linux, system hardening, encryption, networking, Android modding etc.</li>
-                    <li>experimenting with AI/ML, transformer stacks etc.</li>
-                    <li>Breaking stuffs for fun, and learn from them, also to fix them ;)</li>
-                    <li>Naturally, cats.</li>
-                </ul>
-            </div>
+    <main class="content-section">
+        <div class="container"> 
+            
+            <div>
+                <h2>About me</h2>
+                <p>
+                    I'm a student from Asia who spends way too much time experimenting with Linux distributions,
+                    ricing Hyprland, breaking Android phones, and making hardware question its existence.
+                </p>
+                
+                <p>My interests and hobbies include:</p>
+                <ul>
+                    <li>Linux systems administration &amp; kernel tinkering</li>
+                    <li>Experimenting with artificial intelligence and transformer stacks</li>
+                    <li>Porting alternative operating systems onto unsupported mobile devices</li>
+                    <li>Breaking things intentionally to figure out how they function under the hood</li>
+                    <li>Naturally, cats.</li>
+                </ul>
+            </div>
 
-            <hr />
+            <hr />
 
-            <div>
-                <h2>Projects &amp; Focus</h2>
-                <p>
-                    Right now, most of my free compute is going toward training
-                    a custom transformer stack called <a href="https://github.com/ATRNXA/MARJARA">MARJARA</a>,
-                    calculating attention weights locally completely pins my CPU,
-                    making my laptop sound like a jet engine and run incredibly hot,
-                    but watching those loss logs steadily drop down makes the fan
-                    noise worth it
-                </p>
-                <p>
-                    Aside from that, I managed to somehow managed  Hackintosh my AMD Ryzen architecture and also successfully porting Ubuntu Touch onto my Xiaomi Redmi 7A. 
-                </p>
+            <div>
+                <h2>Projects &amp; Focus</h2>
+                <p>
+                    Recently, I've been trying to train a transformer stack called 
+                    <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>. 
+                    Computing attention weights on my local system pushes the hardware limits, making my laptop fans sound like a jet engine taking off, but watching the training loss drop makes it entirely worth it.
+                </p>
+                <p>
+                    Other projects include setting up a custom Hackintosh setup on an AMD Ryzen architecture and successfully deploying Ubuntu Touch onto an aging Xiaomi Redmi 7A. 
+                </p>
 
-                <hr />
+                <hr />
 
-                <h2>My beloved laptop</h2>
-                <p>
-                  It's a HP 247 G8 Notebook PC w/ 6GB of usable RAM, with an AMD ryzen 5 3500U, Vega 8 iGPU, dual booted Arch Linux and macOS 12 on a 512GB NVME SSD
-                </p>
+                <h2>The Workspace</h2>
+                <p>
+                    My main environment is driven by an HP 247 G8 Notebook PC with 6GB usable RAM, an AMD Ryzen 5 3500U processor, and a Vega 8 iGPU. It runs a minimal, dual-boot environment containing custom-tailored Arch Linux and macOS 12 on a 512GB NVMe SSD.
+                </p>
 
-                <hr />
+                <hr />
 
-                <h2>About the site</h2>
-                <p>
-                     coded in HTML5 and CSS3, proudly hosted on GitHub Pages.
-                </p>
-            </div>
+                <h2>About the site</h2>
+                <p>
+                    This is an isolated, vanilla space coded purely in HTML5 and CSS3. No tracking tools, no analytical databases, and no heavy frameworks—just simple static files hosted on GitHub Pages.
+                </p>
 
-        </div>
-    </main>
+                <hr />
+
+                <div class="external-links">
+                    <a href="/blog/">Blog</a> 
+                    <a href="/media/">Media</a> 
+                    <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const hint = document.getElementById('scrollHint');
+            if (window.scrollY > 40) {
+                hint.classList.add('hidden');
+            }
+        });
+    </script>
 
 </body>
 </html>
-"

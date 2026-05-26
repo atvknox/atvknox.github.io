@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>atvknox's home — terminal core</title>
+    <title>atvknox's home</title>
     <style>
         * {
             margin: 0;
@@ -19,56 +19,56 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* HERO — tighter horizontal alignment: cat + name side-by-side, no heavy gap */
         .vault {
+            position: relative;
             width: 100%;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             padding-left: 5%;
             padding-right: 5%;
-            gap: 1.5rem;          /* reduced from 2vw → makes them sit closer */
-            flex-wrap: wrap;       /* safety on very narrow screens, but keeps side-by-side when possible */
+            padding-top: 3rem;
         }
 
-        /* ----- BIGGER CAT ----- */
+        .top-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
         .glyph {
             flex-shrink: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
         }
 
         .glyph pre {
             font-family: monospace;
-            font-size: 18px;       /* ⬆️ noticeably bigger cat (was 13px) */
+            font-size: 18px;
             line-height: 1.05;
             color: #fff;
             white-space: pre;
             pointer-events: none;
             user-select: none;
             margin: 0;
-            text-shadow: 0 0 2px rgba(255,255,255,0.1);
         }
 
-        /* RIGHT SIDE — adjusted to sit flush next to bigger cat */
         .signal {
-            width: auto;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            padding-top: 0.2rem;
         }
 
-        /* SMALLER NAME — "Hi, I'm 丂hridhyan" reduced & tight */
         .signal h1 {
             font-family: monospace;
-            font-size: clamp(1rem, 3vw, 1.5rem);   /* smaller than original: was 1.5rem->2.3rem now 1rem->1.5rem */
+            font-size: clamp(1rem, 3vw, 1.5rem);
             font-weight: 600;
             line-height: 1.2;
             letter-spacing: -0.3px;
             white-space: nowrap;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .alias {
@@ -76,17 +76,14 @@
             display: inline-block;
         }
 
-        /* subtitle text remains readable but balanced */
         .echo {
             color: #8b8b8b;
             font-size: 0.9rem;
-            margin-bottom: 0;
+            margin-top: 2px;
         }
 
-        /* PORTAL LINKS — moved close below the name, no huge margin-top */
         .portal {
-            margin-top: 28px;      /* was 340px → now directly under name+subtitle */
-            width: 100%;
+            margin-top: 2.5rem;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -101,7 +98,7 @@
             color: #fff;
             text-decoration: none;
             border-bottom: 1px dashed #555;
-            transition: background .2s ease, color .2s ease, border-color .2s ease;
+            transition: background .3s ease, color .3s ease, border-color .3s ease;
         }
 
         .portal a:hover,
@@ -111,12 +108,11 @@
             border-color: #fff;
         }
 
-        /* MAIN CONTENT SECTION */
         .matrix {
             width: 100%;
             display: flex;
             justify-content: center;
-            padding: 90px 40px 120px;
+            padding: 5rem 1.5rem 8rem;
         }
 
         .core {
@@ -173,36 +169,35 @@
             margin: 60px 0;
         }
 
-        /* ANIMATIONS - smooth entrance but respecting new layout */
         .cat-phase,
         .name-phase,
         .text-phase,
         .link-phase {
             opacity: 0;
-            transform: translateY(18px);
-            animation: appear .95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform: translateY(20px);
+            animation: appear 1s cubic-bezier(0.12, 0.71, 0.33, 1) forwards;
         }
 
         .cat-phase {
-            animation-delay: 0.1s;
+            animation-delay: 0.05s;
         }
 
         .name-phase {
-            animation-delay: 0.35s;
+            animation-delay: 0.2s;
         }
 
         .text-phase {
-            animation-delay: 0.6s;
+            animation-delay: 0.4s;
         }
 
         .link-phase {
-            animation-delay: 0.9s;
+            animation-delay: 0.65s;
         }
 
         @keyframes appear {
             from {
                 opacity: 0;
-                transform: translateY(26px);
+                transform: translateY(24px);
             }
             to {
                 opacity: 1;
@@ -210,19 +205,15 @@
             }
         }
 
-        /* TABLET — maintain cat size but scale heading elegantly */
         @media (max-width: 980px) {
             .vault {
-                flex-direction: row;        /* keep side-by-side until it’s too narrow */
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                gap: 1.2rem;
-                padding: 60px 32px;
+                padding-left: 6%;
+                padding-right: 6%;
+                padding-top: 2rem;
             }
 
             .glyph pre {
-                font-size: 15px;     /* still bigger than original 13px, but adjusts for smaller view */
+                font-size: 15px;
             }
 
             .signal h1 {
@@ -231,57 +222,49 @@
             }
 
             .portal {
-                margin-top: 24px;
+                margin-top: 2rem;
             }
         }
 
-        /* MOBILE — when screen gets cramped, stack cat + text vertically, but cat still prominent */
         @media (max-width: 680px) {
             .vault {
+                padding-top: 2rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .top-left {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 50px 24px;
-                gap: 1.8rem;
+                align-items: flex-start;
+                gap: 1.2rem;
             }
 
             .glyph pre {
-                font-size: 12px;      /* on mobile: cat stays bigger than original 6.2px — much more visible */
-            }
-
-            .signal {
-                align-items: center;
+                font-size: 12px;
             }
 
             .signal h1 {
                 font-size: 1.3rem;
                 white-space: normal;
-                text-align: center;
             }
 
             .alias {
                 white-space: normal;
             }
 
-            .echo {
-                text-align: center;
-            }
-
             .portal {
-                justify-content: center;
-                margin-top: 16px;
-                gap: 1.4rem;
+                margin-top: 1.8rem;
+                gap: 1.5rem;
             }
 
             .matrix {
-                padding: 60px 24px;
+                padding: 3rem 1.5rem 6rem;
             }
         }
 
-        /* even smaller devices — cat still big enough to enjoy */
         @media (max-width: 480px) {
             .glyph pre {
-                font-size: 9.5px;    /* crisp and readable, bigger than the original 6.2px! */
+                font-size: 9.5px;
             }
 
             .signal h1 {
@@ -289,33 +272,27 @@
             }
         }
 
-        /* optional: fine-tune for ultra-wide where cat+name can breathe but stay close */
         @media (min-width: 1400px) {
             .glyph pre {
-                font-size: 21px;      /* even bigger cat on large displays */
+                font-size: 22px;
             }
 
             .signal h1 {
                 font-size: 1.6rem;
             }
 
-            .vault {
-                gap: 2rem;
+            .top-left {
+                gap: 2.2rem;
             }
-        }
-
-        /* name-phase + text-phase inline adjustments for perfect vertical alignment */
-        .signal .echo {
-            margin-top: 2px;
         }
     </style>
 </head>
 <body>
 
 <section class="vault">
-    <!-- BIGGER CAT (font-size boosted to 18px baseline) -->
-    <div class="glyph">
-        <pre class="cat-phase">
+    <div class="top-left">
+        <div class="glyph">
+            <pre class="cat-phase">
 ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -337,21 +314,22 @@
 ⣿⣿⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 </pre>
+        </div>
+
+        <div class="signal">
+            <h1 class="name-phase">
+                Hi,&nbsp;I'm&nbsp;<span class="alias">丂hridhyan</span>
+            </h1>
+            <div class="echo text-phase">
+                Welcome to my corner of the internet.
+            </div>
+        </div>
     </div>
 
-    <!-- RIGHT SIDE: smaller heading + subtitle + portal (all next to cat) -->
-    <div class="signal">
-        <h1 class="name-phase">
-            Hi,&nbsp;I'm&nbsp;<span class="alias">丂hridhyan</span>
-        </h1>
-        <div class="echo text-phase">
-            Welcome to my corner of the internet.
-        </div>
-        <div class="portal link-phase">
-            <a href="/blog/">Blog</a>
-            <a href="/media/">Media</a>
-            <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
-        </div>
+    <div class="portal link-phase">
+        <a href="/blog/">Blog</a>
+        <a href="/media/">Media</a>
+        <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
     </div>
 </section>
 

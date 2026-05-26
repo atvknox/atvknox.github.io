@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -6,7 +8,9 @@
     box-sizing: border-box;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 
 body {
     background: #000;
@@ -24,65 +28,45 @@ body {
     overflow-x: hidden;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero-screen {
     min-height: 100vh;
 
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-direction: column;
 
     align-items: center;
+    justify-content: center;
 
-    gap: 4rem;
+    text-align: center;
 
-    padding: 0 6rem;
+    padding: 2rem;
 
     position: relative;
 }
 
-/* LEFT */
-
-.hero-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ascii-art {
-    font-family: monospace;
-
-    font-size: 8px;
-    line-height: 0.9;
-
-    white-space: pre;
-
-    color: #fff;
-
-    user-select: none;
-    pointer-events: none;
-}
-
-/* RIGHT */
-
 .hero-right {
-    max-width: 600px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    max-width: 750px;
 }
 
 .hero-right h1 {
     font-family: monospace;
 
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3rem, 8vw, 6rem);
 
     line-height: 1;
 
-    margin-bottom: 1rem;
+    letter-spacing: -3px;
 
-    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
+
+.hero-right span {
+    color: #d6d6d6;
 }
 
 .subtitle {
@@ -90,15 +74,14 @@ body {
     color: #777;
 }
 
-/* LINKS */
+/* =========================
+   LINKS
+========================= */
 
 .hero-links {
     position: absolute;
 
     bottom: 40px;
-    left: 50%;
-
-    transform: translateX(-50%);
 
     display: flex;
     gap: 2rem;
@@ -106,13 +89,37 @@ body {
     font-family: monospace;
 }
 
-/* CONTENT */
+.hero-links a,
+p a {
+    color: #fff;
+
+    text-decoration: none;
+
+    border-bottom: 1px dashed #555;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.hero-links a:hover,
+p a:hover {
+    background: #fff;
+    color: #000;
+
+    border-color: #fff;
+}
+
+/* =========================
+   CONTENT
+========================= */
 
 .content-section {
+    width: 100%;
+
     display: flex;
     justify-content: center;
-
-    width: 100%;
 
     padding: 7rem 2rem;
 }
@@ -122,7 +129,9 @@ body {
     max-width: 720px;
 }
 
-/* HEADINGS */
+/* =========================
+   HEADINGS
+========================= */
 
 h2 {
     font-family: monospace;
@@ -141,11 +150,13 @@ h2::before {
     color: #555;
 }
 
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
 
 p {
-    margin-bottom: 1.5rem;
     color: #ddd;
+    margin-bottom: 1.5rem;
 }
 
 ul {
@@ -181,7 +192,9 @@ hr {
     margin: 4rem 0;
 }
 
-/* ANIMATIONS */
+/* =========================
+   ANIMATIONS
+========================= */
 
 .fade-in {
     opacity: 0;
@@ -219,46 +232,20 @@ hr {
     }
 }
 
-/* TABLET */
-
-@media (max-width: 1000px) {
-    .hero-screen {
-        gap: 2rem;
-    }
-
-    .ascii-art {
-        font-size: 6px;
-    }
-}
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
     .hero-screen {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
         padding:
             4rem 1.5rem
             6rem;
-
-        gap: 2rem;
-    }
-
-    .hero-left {
-        justify-content: center;
-    }
-
-    .ascii-art {
-        font-size: 4.5px;
-    }
-
-    .hero-right {
-        align-items: center;
     }
 
     .hero-right h1 {
-        font-size: 2.5rem;
+        font-size: 2.7rem;
     }
 
     .subtitle {
@@ -268,12 +255,16 @@ hr {
     .hero-links {
         position: static;
 
-        transform: none;
+        margin-top: 2rem;
 
         justify-content: center;
 
         flex-wrap: wrap;
 
-        margin-top: 2rem;
+        gap: 1.2rem;
+    }
+
+    .content-section {
+        padding: 5rem 1.5rem;
     }
 }

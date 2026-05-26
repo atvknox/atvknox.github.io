@@ -15,9 +15,9 @@
             background: #000000;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            padding: 80px 40px;
+            padding: 60px 40px;
             display: flex;
-            justify-content: flex-start; 
+            justify-content: flex-start;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
@@ -28,20 +28,35 @@
             animation: sideScan 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-       
+        /* 
+           Crucial ASCII/Braille scaling wrapper. 
+           Prevents the cat from breaking or spilling over on mobile.
+        */
+        .ascii-art {
+            font-family: monospace;
+            font-size: 8px; /* High resolution layout density */
+            line-height: 1.1;
+            letter-spacing: 0;
+            white-space: pre;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            color: #ffffff;
+            pointer-events: none;
+            user-select: none;
+        }
+
         h2 {
             font-family: monospace;
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 50px;
+            margin-top: 40px;
             margin-bottom: 16px;
             font-weight: bold;
             display: flex;
             align-items: center;
         }
 
-   
         h2::before {
             content: "> ";
             margin-right: 8px;
@@ -49,11 +64,10 @@
 
         p {
             font-size: 1rem;
-            color: #ffffff; 
+            color: #ffffff;
             margin-bottom: 20px;
             text-align: left;
         }
-
 
         p a, .external-links a {
             color: #ffffff;
@@ -79,7 +93,7 @@
         @keyframes sideScan {
             from {
                 opacity: 0;
-                transform: translateX(-16px); 
+                transform: translateX(-16px);
             }
             to {
                 opacity: 1;
@@ -87,9 +101,14 @@
             }
         }
 
+        /* Fluidly scales down the art on phones so it remains intact */
         @media (max-width: 640px) {
             body {
                 padding: 40px 24px;
+            }
+            .ascii-art {
+                font-size: 4.5px;
+                margin-bottom: 10px;
             }
             .external-links {
                 flex-direction: column;
@@ -101,6 +120,31 @@
 <body>
     <div class="container"> 
         
+        <!-- Scaled Braille Asset Placement -->
+        <pre class="ascii-art">
+⠀Meow⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣠⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣤⣤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⣈⡉⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⠿⠿⣦⡀⠢⡀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⢀⣴⣿⣿⡇⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡷⢀⣹⣿⠦⠈⠢⡈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⢀⡴⠿⣯⣽⣿⠃⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⢄⠀⣐⣒⣀⠀⠈⠢⡈⠻⢿⣿⣿⡿⠿⠛⢛⣛⣛⣛⣛⣛⡛⠿⠿⣿⣿⣿⠿⠋⠀⢀⣤⣍⣉⠉⢩⣿⠇⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠐⠚⠛⠿⠃⠀⠀⠈⠑⠒⠾⠑⢶⡾⢿⡿⣿⣿⡿⢿⣿⣿⢓⠲⡶⠄⠒⠀⢀⠔⢉⠐⠛⠻⠿⣿⡏⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠹⠙⠂⠀⠀⠀⠀⠀⣀⣀⠀⢠⠁⠟⠇⣷⡀⣻⣇⣀⠂⠀⠀⠀⠚⠃⢘⣾⣭⣴⣿⣿⢀⠀⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⡆⠀⠘⢿⠀⢺⢀⡆⠀⣮⠁⠀⠸⢻⠀⠠⠀⡀⠀⠀⠈⠙⠿⣿⣌⡻⢼⢠⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣾⣷⡀⠀⠀⠀⠀⠀⢀⣶⣶⣤⣦⡌⠀⠀⠀⠀⠈⠄⠅⠘⠈⠂⠀⠀⠰⢲⢄⣁⠀⠶⢀⣀⠀⠙⡁⠨⠡⠂⣸⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣧⠀⠀⠀⢀⣤⣖⠨⠽⠤⠌⠁⠀⠀⠀⠀⠀⠀⠀⣄⠀⠈⠀⠀⠀⠀⣀⠁⢴⣦⣉⣏⣀⣉⠀⠀⡔⣰⣿⣿⣿⣿⠂⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢂⣿⣿⣿⣿⠁⠀⠀⠛⠛⠙⠃⣠⣤⠀⠀⠀⠀⠀⠀⠀⠀⢤⠀⠀⠀⠀⠀⠀⠀⢨⣭⡀⢉⠻⣿⣿⣿⣆⠰⣷⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⢸⡂⠀⠀⠀⠀⠀⣀⠻⠰⡄⠀⢰⡆⡀⣸⣿⡗⠈⠐⢬⣍⣻⣿⣷⡈⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣷⠀⠀⠀⠀⠀⢢⠀⠙⠷⣬⠟⣁⡀⠀⠀⠀⠀⣸⣦⡈⠣⣦⣈⠻⠤⠟⠋⠀⠈⠀⣈⣟⣉⣻⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠈⡳⢶⣄⠀⠀⠀⠀⠀⠠⠘⣿⣿⣇⠀⠘⣯⠧⠀⠀⠀⠀⠀⣼⡿⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⡀⠀⠀⢰⣿⣿⣿⡏⠀⢀⣿⡤⠀⣀⠀⠀⣼⠋⢉⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠞⠛⠿⣿⣧⡀⠈⣻⡗⠛⠿⠄⠈⠀⠠⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⡀⠁⢀⣼⣏⣛⣡⡴⠋⠉⠙⠟⠛⠯⣭⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠉⠶⢿⡍⣭⣍⡺⢶⣉⠩⠙⣱⣞⣒⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⡤⠀⠀⠲⢂⣀⣽⣿⢦⣁⠀⣵⣖⣬⣽⡟⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣿⣿⡏⢤⡘⠿⢮⠿⢿⣿⣿⣿⣿⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠦⠺⠛⠛⠁⠀⠁⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre>
+
         <h2>Welcome</h2>
         <p>
             Hi there. Welcome to my small corner of the internet.
@@ -131,7 +175,7 @@
             like a jet engine taking off, but watching the loss drop makes the thermal throttling worth it.
         </p>
 
-        <h2>Hardware Constraints</h2>
+        <h2>My Hardware</h2>
         <p>
             My main machine is currently suffering greatly under my decisions.<br>
             It's an HP 247 G8 Notebook PC w/ 6GB usable RAM, Ryzen 5 3500U, Vega 8 iGPU, dual-booted Arch Linux and macOS 12 

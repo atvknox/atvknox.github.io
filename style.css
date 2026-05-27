@@ -1,297 +1,210 @@
+/* Note: I used some part of these from a MIT liscenced repo, and some are from my ricing knowledge, so kindly ignore the source; why this gymnastics? I JUST DIDNT WANTED TO USE HUGO*/
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: #000;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.hero-wrap {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 3rem;
+/* main container */
+
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px 0 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.cat-area {
-    display: flex;
-    align-items: center;
-    gap: 1.8rem;
-    flex-wrap: wrap;
+/* header area with the ascii cat */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
 }
 
-.ascii-box {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
+.cat pre {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.1;
+  color: #fff;
+  white-space: pre;
 }
 
-.ascii-box pre {
-    font-family: monospace;
-    font-size: 18px;
-    line-height: 1.05;
-    color: #fff;
-    white-space: pre;
-    pointer-events: none;
-    user-select: none;
-    margin: 0;
+.name h1 {
+  font-family: monospace;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-.text-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.name span {
+  display: inline-block;
 }
 
-.text-block h1 {
-    font-family: monospace;
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-    white-space: nowrap;
-    margin-bottom: 6px;
+.bio {
+  color: #888;
+  font-size: 15px;
 }
 
-.name-style {
-    white-space: nowrap;
-    display: inline-block;
+/* navigation -CENTRE this */
+
+.nav {
+  text-align: center;
+  margin: 120px 0 60px 0;
 }
 
-.sub {
-    color: #8b8b8b;
-    font-size: 0.9rem;
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  margin: 0 25px;
+  font-family: monospace;
+  padding-bottom: 4px;
+  transition: 0.2s;
 }
 
-.link-holder {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 12rem;
-    margin-bottom: 4rem;
+.nav a:hover {
+  border-bottom-color: #fff;
+  background: #fff;
+  color: #000;
+  padding: 4px 8px;
 }
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    font-family: monospace;
-    font-size: 1rem;
-    flex-wrap: wrap;
+/* main content section */
+
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 100px 20px;
 }
 
-.nav-links a,
-.content-stuff p a {
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 1px dashed #555;
-    transition: background .3s ease, color .3s ease, border-color .3s ease;
-    padding: 0.2rem 0;
+.content h2 {
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 50px 0 20px 0;
+  text-transform: uppercase;
+  color: #ccc;
 }
 
-.nav-links a:hover,
-.content-stuff p a:hover {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
+.content h2:before {
+  content: '> ';
+  color: #555;
 }
 
-.content-stuff {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 5rem 1.5rem 8rem;
+.content p {
+  color: #ddd;
+  line-height: 1.7;
+  margin-bottom: 25px;
 }
 
-.inner-text {
-    width: 100%;
-    max-width: 680px;
+.content hr {
+  border: none;
+  height: 1px;
+  background: #222;
+  margin: 50px 0;
 }
 
-.content-stuff h2 {
-    font-family: monospace;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 60px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
+/* stupid bullet points, will I ever use that? */
+
+.content ul {
+  list-style: none;
+  margin: 20px 0 30px 0;
 }
 
-.content-stuff h2::before {
-    content: "> ";
-    color: #555;
-    margin-right: 10px;
+.content ul li {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: #ddd;
+  position: relative;
 }
 
-.content-stuff p {
-    color: #e3e3e3;
-    margin-bottom: 24px;
-    line-height: 1.8;
+.content ul li:before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: #666;
 }
 
-.content-stuff ul {
-    list-style: none;
-    margin-bottom: 24px;
+/* animations - whatever */
+
+.fade {
+  opacity: 0;
+  animation: fadein 0.8s forwards;
 }
 
-.content-stuff ul li {
-    position: relative;
-    padding-left: 22px;
-    margin-bottom: 12px;
-    color: #e3e3e3;
-}
-
-.content-stuff ul li::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    color: #555;
-}
-
-.content-stuff hr {
-    border: 0;
-    height: 1px;
-    background: #222;
-    margin: 60px 0;
-}
-
-.anim1, .anim2, .anim3, .anim4 {
+@keyframes fadein {
+  from {
     opacity: 0;
-    transform: translateY(20px);
-    animation: slideMe 1s cubic-bezier(0.12, 0.71, 0.33, 1) forwards;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.anim1 {
-    animation-delay: 0.05s;
+/* responsive sh!t */
+
+@media (max-width: 800px) {
+  .wrap {
+    padding: 40px 20px 0 20px;
+  }
+  .cat pre {
+    font-size: 12px;
+  }
+  .name h1 {
+    font-size: 22px;
+  }
+  .nav {
+    margin: 80px 0 40px 0;
+  }
+  .nav a {
+    margin: 0 15px;
+    font-size: 14px;
+  }
 }
 
-.anim2 {
-    animation-delay: 0.2s;
+@media (max-width: 550px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .cat pre {
+    font-size: 9px;
+  }
+  .name h1 {
+    font-size: 18px;
+    white-space: normal;
+  }
+  .nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+  .content {
+    padding: 20px 15px 60px 15px;
+  }
 }
 
-.anim3 {
-    animation-delay: 0.4s;
-}
+/* for big screens */
 
-.anim4 {
-    animation-delay: 0.65s;
-}
-
-@keyframes slideMe {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 980px) {
-    .hero-wrap {
-        padding-left: 6%;
-        padding-right: 6%;
-        padding-top: 2rem;
-    }
-
-    .ascii-box pre {
-        font-size: 15px;
-    }
-
-    .text-block h1 {
-        font-size: 1.25rem;
-        white-space: nowrap;
-    }
-
-    .link-holder {
-        margin-top: 8rem;
-    }
-}
-
-@media (max-width: 680px) {
-    .hero-wrap {
-        padding-top: 2rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    .cat-area {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.2rem;
-    }
-
-    .ascii-box pre {
-        font-size: 12px;
-    }
-
-    .text-block h1 {
-        font-size: 1.3rem;
-        white-space: normal;
-    }
-
-    .name-style {
-        white-space: normal;
-    }
-
-    .link-holder {
-        margin-top: 6rem;
-        margin-bottom: 2rem;
-    }
-
-    .nav-links {
-        gap: 2rem;
-        font-size: 0.9rem;
-    }
-
-    .content-stuff {
-        padding: 3rem 1.5rem 6rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .ascii-box pre {
-        font-size: 9.5px;
-    }
-
-    .text-block h1 {
-        font-size: 1.1rem;
-    }
-
-    .link-holder {
-        margin-top: 4rem;
-    }
-}
-
-@media (min-width: 1400px) {
-    .ascii-box pre {
-        font-size: 22px;
-    }
-
-    .text-block h1 {
-        font-size: 1.6rem;
-    }
-
-    .cat-area {
-        gap: 2.2rem;
-    }
-
-    .link-holder {
-        margin-top: 14rem;
-    }
+@media (min-width: 1600px) {
+  .cat pre {
+    font-size: 20px;
+  }
+  .name h1 {
+    font-size: 34px;
+  }
 }

@@ -4,315 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>atvknox's home</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #000;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .vault {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-left: 5%;
-            padding-right: 5%;
-            padding-top: 3rem;
-        }
-
-        .top-left {
-            display: flex;
-            align-items: center;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-        }
-
-        .glyph {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .glyph pre {
-            font-family: monospace;
-            font-size: 18px;
-            line-height: 1.05;
-            color: #fff;
-            white-space: pre;
-            pointer-events: none;
-            user-select: none;
-            margin: 0;
-        }
-
-        .signal {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .signal h1 {
-            font-family: monospace;
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.3px;
-            white-space: nowrap;
-            margin-bottom: 6px;
-        }
-
-        .alias {
-            white-space: nowrap;
-            display: inline-block;
-        }
-
-        .echo {
-            color: #8b8b8b;
-            font-size: 0.9rem;
-        }
-
-        .portal-wrapper {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 12rem;
-            margin-bottom: 4rem;
-        }
-
-        .portal {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            font-family: monospace;
-            font-size: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .portal a,
-        p a {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px dashed #555;
-            transition: background .3s ease, color .3s ease, border-color .3s ease;
-            padding: 0.2rem 0;
-        }
-
-        .portal a:hover,
-        p a:hover {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
-        }
-
-        .matrix {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 5rem 1.5rem 8rem;
-        }
-
-        .core {
-            width: 100%;
-            max-width: 680px;
-        }
-
-        h2 {
-            font-family: monospace;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 60px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::before {
-            content: "> ";
-            color: #555;
-            margin-right: 10px;
-        }
-
-        p {
-            color: #e3e3e3;
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 22px;
-            margin-bottom: 12px;
-            color: #e3e3e3;
-        }
-
-        ul li::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #555;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: #222;
-            margin: 60px 0;
-        }
-
-        .cat-phase,
-        .name-phase,
-        .text-phase,
-        .link-phase {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: appear 1s cubic-bezier(0.12, 0.71, 0.33, 1) forwards;
-        }
-
-        .cat-phase {
-            animation-delay: 0.05s;
-        }
-
-        .name-phase {
-            animation-delay: 0.2s;
-        }
-
-        .text-phase {
-            animation-delay: 0.4s;
-        }
-
-        .link-phase {
-            animation-delay: 0.65s;
-        }
-
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 980px) {
-            .vault {
-                padding-left: 6%;
-                padding-right: 6%;
-                padding-top: 2rem;
-            }
-
-            .glyph pre {
-                font-size: 15px;
-            }
-
-            .signal h1 {
-                font-size: 1.25rem;
-                white-space: nowrap;
-            }
-
-            .portal-wrapper {
-                margin-top: 8rem;
-            }
-        }
-
-        @media (max-width: 680px) {
-            .vault {
-                padding-top: 2rem;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-
-            .top-left {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.2rem;
-            }
-
-            .glyph pre {
-                font-size: 12px;
-            }
-
-            .signal h1 {
-                font-size: 1.3rem;
-                white-space: normal;
-            }
-
-            .alias {
-                white-space: normal;
-            }
-
-            .portal-wrapper {
-                margin-top: 6rem;
-                margin-bottom: 2rem;
-            }
-
-            .portal {
-                gap: 2rem;
-                font-size: 0.9rem;
-            }
-
-            .matrix {
-                padding: 3rem 1.5rem 6rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .glyph pre {
-                font-size: 9.5px;
-            }
-
-            .signal h1 {
-                font-size: 1.1rem;
-            }
-
-            .portal-wrapper {
-                margin-top: 4rem;
-            }
-        }
-
-        @media (min-width: 1400px) {
-            .glyph pre {
-                font-size: 22px;
-            }
-
-            .signal h1 {
-                font-size: 1.6rem;
-            }
-
-            .top-left {
-                gap: 2.2rem;
-            }
-
-            .portal-wrapper {
-                margin-top: 14rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<section class="vault">
-    <div class="top-left">
-        <div class="glyph">
-            <pre class="cat-phase">
+<section class="hero-wrap">
+    <div class="cat-area">
+        <div class="ascii-box">
+            <pre class="anim1">
 ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -336,18 +35,18 @@
 </pre>
         </div>
 
-        <div class="signal">
-            <h1 class="name-phase">
-                Hi,&nbsp;I'm&nbsp;<span class="alias">丂hridhyan</span>
+        <div class="text-block">
+            <h1 class="anim2">
+                Hi,&nbsp;I'm&nbsp;<span class="name-style">丂hridhyan</span>
             </h1>
-            <div class="echo text-phase">
-                Welcome to my corner of the internet.
+            <div class="sub anim3">
+                Welcome to my small corner of the internet.
             </div>
         </div>
     </div>
 
-    <div class="portal-wrapper">
-        <div class="portal link-phase">
+    <div class="link-holder">
+        <div class="nav-links anim4">
             <a href="/blog/">Blog</a>
             <a href="/media/">Media</a>
             <a href="https://atrnxa.github.io/" target="_blank">ATRNXA</a>
@@ -355,20 +54,20 @@
     </div>
 </section>
 
-<main class="matrix">
-    <div class="core">
+<main class="content-stuff">
+    <div class="inner-text">
         <h2>About me</h2>
         <p>
             I'm a student from Asia who spends way too much time experimenting
             with Linux distributions, ricing Hyprland, breaking Android phones,
-            and making hardware question its existence.
+            and making hardware question its existence :)
         </p>
         <p>My interests and hobbies include:</p>
         <ul>
             <li>Linux, system config, ricing Hyprland</li>
-            <li>System hardening, networking, encryption, cybersecurity</li>
+            <li>system hardening, networking, encryption, cybersecurity</li>
             <li>Android modding and alternative mobile operating systems</li>
-            <li>Breaking things intentionally to understand them better</li>
+            <li>Breaking stuff, so I can learn from them ;)</li>
             <li>Naturally, cats.</li>
         </ul>
 
@@ -379,11 +78,11 @@
             Recently, I've been trying to train a transformer stack called
             <a href="https://github.com/ATRNXA/MARJARA" target="_blank">MARJARA</a>.
             Computing attention weights on my local system pushes the hardware
-            limits, making my laptop fans sound like a jet engine taking off.
+            limits, making my laptop fans sound like a jet engine taking off 
         </p>
         <p>
-            Aside from that, I somehow managed to setup a Hackintosh on AMD Ryzen
-            and successfully port Ubuntu Touch to my Xiaomi Redmi 7A.
+            Aside from that, I somehow managed to setup a Hackintosh on my AMD Ryzen
+            and also, I manage to  port Ubuntu Touch to my Xiaomi Redmi 7A "successfully" :D
         </p>
 
         <hr />

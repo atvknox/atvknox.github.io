@@ -1,4 +1,4 @@
-/* Note: I used some part of these from a MIT licensed repo, and some are from my ricing knowledge, so kindly ignore the source; why this gymnastics? I JUST DIDN'T WANTED TO USE A static site generator (yet)*/
+/* Note: some are from my ricing knowledge, and those animations curves are from https://cubic-bezier.com and https://matthewlein.com/tools/ceaser it's spaghetti of stuffl so kindly ignore the source; why this gymnastics? I JUST DIDN'T WANTED TO USE A static site generator (yet)*/
 * {
     margin: 0;
     padding: 0;
@@ -211,15 +211,7 @@ body {
     }
 }
 
-.scrollme {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: none;
-}
 
-.scrollme.visib {
-    animation: messyPop 0.85s cubic-bezier(0.11, 0.73, 0.34, 0.97) forwards;
-}
 
 @keyframes messyPop {
     0% {

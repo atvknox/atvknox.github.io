@@ -1,270 +1,297 @@
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   BODY
-========================= */
-
 body {
     background: #000;
     color: #fff;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
-
-    line-height: 1.7;
-
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero-screen {
+.hero-wrap {
+    position: relative;
+    width: 100%;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 2rem;
-
-    position: relative;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 3rem;
 }
 
-.hero-right {
-    width: 100%;
-    max-width: 750px;
-}
-
-.hero-right h1 {
-    font-family: monospace;
-
-    font-size: clamp(3rem, 8vw, 6rem);
-
-    line-height: 1;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 1rem;
-}
-
-.hero-right span {
-    color: #d6d6d6;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #777;
-}
-
-/* =========================
-   LINKS
-========================= */
-
-.hero-links {
-    position: absolute;
-
-    bottom: 40px;
-
+.cat-area {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+}
 
+.ascii-box {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.ascii-box pre {
     font-family: monospace;
-}
-
-.hero-links a,
-p a {
+    font-size: 18px;
+    line-height: 1.05;
     color: #fff;
-
-    text-decoration: none;
-
-    border-bottom: 1px dashed #555;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+    white-space: pre;
+    pointer-events: none;
+    user-select: none;
+    margin: 0;
 }
 
-.hero-links a:hover,
-p a:hover {
+.text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-block h1 {
+    font-family: monospace;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    margin-bottom: 6px;
+}
+
+.name-style {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.sub {
+    color: #8b8b8b;
+    font-size: 0.9rem;
+}
+
+.link-holder {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12rem;
+    margin-bottom: 4rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    font-family: monospace;
+    font-size: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a,
+.content-stuff p a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dashed #555;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+    padding: 0.2rem 0;
+}
+
+.nav-links a:hover,
+.content-stuff p a:hover {
     background: #fff;
     color: #000;
-
     border-color: #fff;
 }
 
-/* =========================
-   CONTENT
-========================= */
-
-.content-section {
+.content-stuff {
     width: 100%;
-
     display: flex;
     justify-content: center;
-
-    padding: 7rem 2rem;
+    padding: 5rem 1.5rem 8rem;
 }
 
-.container {
+.inner-text {
     width: 100%;
-    max-width: 720px;
+    max-width: 680px;
 }
 
-/* =========================
-   HEADINGS
-========================= */
-
-h2 {
+.content-stuff h2 {
     font-family: monospace;
-
     font-size: 1rem;
-
     text-transform: uppercase;
     letter-spacing: 2px;
-
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
+    margin-top: 60px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
 }
 
-h2::before {
+.content-stuff h2::before {
     content: "> ";
+    color: #555;
+    margin-right: 10px;
+}
+
+.content-stuff p {
+    color: #e3e3e3;
+    margin-bottom: 24px;
+    line-height: 1.8;
+}
+
+.content-stuff ul {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.content-stuff ul li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    color: #e3e3e3;
+}
+
+.content-stuff ul li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
     color: #555;
 }
 
-/* =========================
-   TEXT
-========================= */
-
-p {
-    color: #ddd;
-    margin-bottom: 1.5rem;
-}
-
-ul {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-ul li {
-    position: relative;
-
-    padding-left: 1.4rem;
-    margin-bottom: 0.8rem;
-
-    color: #ddd;
-}
-
-ul li::before {
-    content: "-";
-
-    position: absolute;
-    left: 0;
-
-    color: #666;
-}
-
-hr {
-    border: none;
-
+.content-stuff hr {
+    border: 0;
     height: 1px;
-
     background: #222;
-
-    margin: 4rem 0;
+    margin: 60px 0;
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
-
-.fade-in {
+.anim1, .anim2, .anim3, .anim4 {
     opacity: 0;
-
-    animation:
-        fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)
-        forwards;
+    transform: translateY(20px);
+    animation: slideMe 1s cubic-bezier(0.12, 0.71, 0.33, 1) forwards;
 }
 
-.fade-in.one {
-    animation-delay: 0.1s;
+.anim1 {
+    animation-delay: 0.05s;
 }
 
-.fade-in.two {
-    animation-delay: 0.35s;
+.anim2 {
+    animation-delay: 0.2s;
 }
 
-.fade-in.three {
-    animation-delay: 0.55s;
+.anim3 {
+    animation-delay: 0.4s;
 }
 
-.fade-in.four {
-    animation-delay: 0.75s;
+.anim4 {
+    animation-delay: 0.65s;
 }
 
-@keyframes fadeUp {
+@keyframes slideMe {
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(24px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-    .hero-screen {
-        padding:
-            4rem 1.5rem
-            6rem;
+@media (max-width: 980px) {
+    .hero-wrap {
+        padding-left: 6%;
+        padding-right: 6%;
+        padding-top: 2rem;
     }
 
-    .hero-right h1 {
-        font-size: 2.7rem;
+    .ascii-box pre {
+        font-size: 15px;
     }
 
-    .subtitle {
-        font-size: 1rem;
+    .text-block h1 {
+        font-size: 1.25rem;
+        white-space: nowrap;
     }
 
-    .hero-links {
-        position: static;
+    .link-holder {
+        margin-top: 8rem;
+    }
+}
 
-        margin-top: 2rem;
+@media (max-width: 680px) {
+    .hero-wrap {
+        padding-top: 2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 
-        justify-content: center;
-
-        flex-wrap: wrap;
-
+    .cat-area {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1.2rem;
     }
 
-    .content-section {
-        padding: 5rem 1.5rem;
+    .ascii-box pre {
+        font-size: 12px;
+    }
+
+    .text-block h1 {
+        font-size: 1.3rem;
+        white-space: normal;
+    }
+
+    .name-style {
+        white-space: normal;
+    }
+
+    .link-holder {
+        margin-top: 6rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav-links {
+        gap: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .content-stuff {
+        padding: 3rem 1.5rem 6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ascii-box pre {
+        font-size: 9.5px;
+    }
+
+    .text-block h1 {
+        font-size: 1.1rem;
+    }
+
+    .link-holder {
+        margin-top: 4rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .ascii-box pre {
+        font-size: 22px;
+    }
+
+    .text-block h1 {
+        font-size: 1.6rem;
+    }
+
+    .cat-area {
+        gap: 2.2rem;
+    }
+
+    .link-holder {
+        margin-top: 14rem;
     }
 }

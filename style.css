@@ -1,4 +1,4 @@
-/* Note: I used some part of these from a MIT liscenced repo, and some are from my ricing knowledge, so kindly ignore the source; why this gymnastics? I JUST DIDNT WANTED TO USE HUGO*/
+/* Note: I used some part of these from a MIT licensed repo, and some are from my ricing knowledge, so kindly ignore the source; why this gymnastics? I JUST DIDN'T WANT TO USE HUGO */
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +37,7 @@ body {
 }
 
 .ascii-box pre {
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 18px;
     line-height: 1.05;
     color: #fff;
@@ -54,7 +54,7 @@ body {
 }
 
 .text-block h1 {
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: clamp(1rem, 3vw, 1.5rem);
     font-weight: 600;
     line-height: 1.2;
@@ -69,16 +69,16 @@ body {
 }
 
 .sub {
-    color: #8b8b8b;
+    color: #fff;
+    opacity: 0.6; /* Keeps color palette pure white while dropping contrast naturally */
     font-size: 0.9rem;
 }
 
 .link-holder {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 12rem;
+    margin-top: auto;
     margin-bottom: 4rem;
 }
 
@@ -87,7 +87,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1rem;
     flex-wrap: wrap;
 }
@@ -96,8 +96,8 @@ body {
 .content-stuff p a {
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px dashed #555;
-    transition: background .3s ease, color .3s ease, border-color .3s ease;
+    border-bottom: 1px dashed #fff;
+    transition: background 0.3s ease, color 0.3s ease;
     padding: 0.2rem 0;
 }
 
@@ -105,7 +105,6 @@ body {
 .content-stuff p a:hover {
     background: #fff;
     color: #000;
-    border-color: #fff;
 }
 
 .content-stuff {
@@ -121,7 +120,7 @@ body {
 }
 
 .content-stuff h2 {
-    font-family: monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -133,12 +132,12 @@ body {
 
 .content-stuff h2::before {
     content: "> ";
-    color: #555;
+    color: #fff;
     margin-right: 10px;
 }
 
 .content-stuff p {
-    color: #e3e3e3;
+    color: #fff;
     margin-bottom: 24px;
     line-height: 1.8;
 }
@@ -152,20 +151,21 @@ body {
     position: relative;
     padding-left: 22px;
     margin-bottom: 12px;
-    color: #e3e3e3;
+    color: #fff;
 }
 
 .content-stuff ul li::before {
     content: "-";
     position: absolute;
     left: 0;
-    color: #555;
+    color: #fff;
 }
 
 .content-stuff hr {
     border: 0;
     height: 1px;
-    background: #222;
+    background: transparent;
+    border-top: 1px dashed #fff; /* Swapped solid dark grey for clean, minimalist monochrome dashes */
     margin: 60px 0;
 }
 
@@ -227,6 +227,7 @@ body {
     }
 }
 
+/* Media Queries */
 @media (max-width: 980px) {
     .hero-wrap {
         padding-left: 6%;
@@ -241,10 +242,6 @@ body {
     .text-block h1 {
         font-size: 1.25rem;
         white-space: nowrap;
-    }
-
-    .link-holder {
-        margin-top: 8rem;
     }
 }
 
@@ -275,7 +272,6 @@ body {
     }
 
     .link-holder {
-        margin-top: 6rem;
         margin-bottom: 2rem;
     }
 
@@ -297,10 +293,6 @@ body {
     .text-block h1 {
         font-size: 1.1rem;
     }
-
-    .link-holder {
-        margin-top: 4rem;
-    }
 }
 
 @media (min-width: 1400px) {
@@ -314,9 +306,5 @@ body {
 
     .cat-area {
         gap: 2.2rem;
-    }
-
-    .link-holder {
-        margin-top: 14rem;
     }
 }

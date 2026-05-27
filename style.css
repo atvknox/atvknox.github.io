@@ -5,19 +5,24 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: clip;
+}
+
 body {
     background: #000;
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    overflow-x: hidden;
 }
 
 .hero-wrap {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 3rem;
@@ -78,8 +83,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-    margin-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .nav-links {
@@ -165,11 +170,14 @@ body {
     border: 0;
     height: 1px;
     background: transparent;
-    border-top: 1px dashed #fff; /* Swapped solid dark grey for clean, minimalist monochrome dashes */
+    border-top: 1px dashed #fff; 
     margin: 60px 0;
 }
 
-.anim1, .anim2, .anim3, .anim4 {
+.anim1,
+.anim2,
+.anim3,
+.anim4 {
     opacity: 0;
     transform: translateY(20px);
     animation: slideMe 0.95s cubic-bezier(0.12, 0.71, 0.33, 1) forwards;
@@ -196,6 +204,7 @@ body {
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -217,10 +226,12 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     45% {
         opacity: 0.3;
         transform: translateY(8px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -272,7 +283,8 @@ body {
     }
 
     .link-holder {
-        margin-bottom: 2rem;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
     }
 
     .nav-links {
@@ -292,6 +304,10 @@ body {
 
     .text-block h1 {
         font-size: 1.1rem;
+    }
+
+    .nav-links {
+        gap: 1.4rem;
     }
 }
 
